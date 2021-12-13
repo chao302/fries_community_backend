@@ -1,0 +1,13 @@
+server:
+  port: 8088
+
+web:
+  domain: http://localhost
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: Potato
+    password: yitingaml0105
+    url: jdbc:mysql://localhost:3306/fires?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=GMT%2B8
+    type: com.zaxxer.hikari.HikariDataSource
