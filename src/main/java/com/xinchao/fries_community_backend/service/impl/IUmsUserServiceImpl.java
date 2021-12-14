@@ -3,14 +3,14 @@ package com.xinchao.fries_community_backend.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xinchao.fries_community_backend.common.exception.ApiAsserts;
+import com.xinchao.fries_community_backend.jwt.JwtUtil;
 import com.xinchao.fries_community_backend.mapper.UmsUserMapper;
+import com.xinchao.fries_community_backend.model.dto.LoginDTO;
 import com.xinchao.fries_community_backend.model.dto.RegisterDTO;
 import com.xinchao.fries_community_backend.model.entity.UmsUser;
 import com.xinchao.fries_community_backend.service.IUmsUserService;
 import com.xinchao.fries_community_backend.utils.MD5Utils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
@@ -32,7 +32,7 @@ import java.util.Date;
 @Slf4j
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class IUmsUserServiceImpl extends ServiceImpl<UmsUserMapper,UmsUser> implements IUmsUserService {
+public class IUmsUserServiceImpl extends ServiceImpl<UmsUserMapper, UmsUser> implements IUmsUserService {
 
     @Override
     public UmsUser executeRegister(RegisterDTO dto) {
@@ -55,5 +55,24 @@ public class IUmsUserServiceImpl extends ServiceImpl<UmsUserMapper,UmsUser> impl
 
         return addUser;
     }
-
+    @Override
+    public UmsUser getUserByUsername(String username) {
+        return baseMapper.selectOne(new LambdaQueryWrapper<UmsUser>().eq(UmsUser::getUsername, username));
+    }
+    @Override
+    public String executeLogin(LoginDTO dto) {
+        String token = null;
+        try {
+            UmsUser user = getUserByUsername(dto.getUsername());
+            String encodePwd = MD5Utils.getPwd(dto.getPassword());
+            if(!encodePwd.equals(user.getPassword()))
+            {
+                throw new Exception("密码错误");
+            }
+            token = JwtUtil.generateToken(String.valueOf(user.getUsername()));
+        } catch (Exception e) {
+            log.warn("用户不存在or密码验证失败=======>{}", dto.getUsername());
+        }
+        return token;
+    }
 }

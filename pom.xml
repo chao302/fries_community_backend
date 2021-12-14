@@ -8,11 +8,11 @@
         <version>2.3.8.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.douyuehan</groupId>
-    <artifactId>doubao</artifactId>
+    <groupId>com.xinchao</groupId>
+    <artifactId>fries_community_backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>doubao</name>
-    <description>Demo project for Spring Boot</description>
+    <name>fries_community_backend</name>
+    <description>fries_community_backend</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
