@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.xinchao.fries_community_backend.model.dto.LoginDTO;
 import com.xinchao.fries_community_backend.model.dto.RegisterDTO;
 import com.xinchao.fries_community_backend.model.entity.UmsUser;
+import com.xinchao.fries_community_backend.model.vo.ProfileVO;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -38,4 +40,12 @@ public interface IUmsUserService extends IService<UmsUser> {
      * @return 生成的JWT的token
      */
     String executeLogin(LoginDTO dto);
+
+    /**
+     * 获取用户信息
+     *
+     * @param id 用户ID
+     * @return
+     */
+    ProfileVO getUserProfile(String id);
 }

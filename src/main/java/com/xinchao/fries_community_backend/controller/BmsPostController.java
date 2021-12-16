@@ -11,6 +11,8 @@ import com.xinchao.fries_community_backend.service.IUmsUserService;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
+import java.util.Map;
+
 import static com.xinchao.fries_community_backend.jwt.JwtUtil.USER_NAME;
 /**
  * Created with IntelliJ IDEA.
@@ -47,5 +49,9 @@ public class BmsPostController extends BaseController{
         BmsPost topic = iBmsPostService.create(dto, user);
         return ApiResult.success(topic);
     }
-
+    @GetMapping()
+    public ApiResult<Map<String, Object>> view(@RequestParam("id") String id) {
+        Map<String, Object> map = iBmsPostService.viewTopic(id);
+        return ApiResult.success(map);
+    }
 }
