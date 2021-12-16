@@ -2,7 +2,9 @@ package com.xinchao.fries_community_backend.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xinchao.fries_community_backend.model.dto.CreateTopicDTO;
 import com.xinchao.fries_community_backend.model.entity.BmsPost;
+import com.xinchao.fries_community_backend.model.entity.UmsUser;
 import com.xinchao.fries_community_backend.model.vo.PostVO;
 
 /**
@@ -26,4 +28,12 @@ public interface IBmsPostService extends IService<BmsPost> {
      * @return
      */
     Page<PostVO> getList(Page<PostVO> page, String tab);
+    /**
+     * 发布
+     *
+     * @param dto
+     * @param principal
+     * @return
+     */
+    BmsPost create(CreateTopicDTO dto, UmsUser principal);
 }

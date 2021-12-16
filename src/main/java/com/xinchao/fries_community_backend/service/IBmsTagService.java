@@ -2,7 +2,6 @@ package com.xinchao.fries_community_backend.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xinchao.fries_community_backend.model.entity.BmsTag;
-import com.xinchao.fries_community_backend.model.entity.BmsTopicTag;
 
 import java.util.List;
 
@@ -13,27 +12,18 @@ import java.util.List;
  * @version : 1.0
  * @Project : fries_community_backend
  * @Package : com.xinchao.fries_community_backend.service
- * @ClassName : IBmsTopicTagService.java
- * @createTime : 2021/12/15 22:41
+ * @ClassName : IBmsTagService.java
+ * @createTime : 2021/12/16 13:17
  * @Email : xinchao302@foxmail.com
  * @Description :
  */
-public interface IBmsTopicTagService extends IService<BmsTopicTag> {
-
+public interface IBmsTagService extends IService<BmsTag> {
     /**
-     * 获取Topic Tag 关联记录
+     * 插入标签
      *
-     * @param topicId TopicId
-     * @return
-     */
-    List<BmsTopicTag> selectByTopicId(String topicId);
-    /**
-     * 创建中间关系
-     *
-     * @param id
      * @param tags
      * @return
      */
-    void createTopicTag(String id, List<BmsTag> tags);
+    List<BmsTag> insertTags(List<String> tags);
 
 }

@@ -1,10 +1,10 @@
 package com.xinchao.fries_community_backend.model.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
@@ -22,6 +22,11 @@ import java.util.Date;
  * @Email : xinchao302@foxmail.com
  * @Description :
  */
+@Data
+@Builder
+@TableName("bms_post")
+@AllArgsConstructor
+@NoArgsConstructor
 public class BmsPost implements Serializable {
     private static final long serialVersionUID = 1L;
 

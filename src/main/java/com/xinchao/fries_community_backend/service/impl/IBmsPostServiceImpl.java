@@ -1,19 +1,28 @@
 package com.xinchao.fries_community_backend.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.vdurmont.emoji.EmojiParser;
 import com.xinchao.fries_community_backend.mapper.BmsTagMapper;
 import com.xinchao.fries_community_backend.mapper.BmsTopicMapper;
+import com.xinchao.fries_community_backend.mapper.UmsUserMapper;
+import com.xinchao.fries_community_backend.model.dto.CreateTopicDTO;
 import com.xinchao.fries_community_backend.model.entity.BmsPost;
 import com.xinchao.fries_community_backend.model.entity.BmsTag;
 import com.xinchao.fries_community_backend.model.entity.BmsTopicTag;
+import com.xinchao.fries_community_backend.model.entity.UmsUser;
 import com.xinchao.fries_community_backend.model.vo.PostVO;
 import com.xinchao.fries_community_backend.service.IBmsPostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -33,6 +42,13 @@ public class IBmsPostServiceImpl extends ServiceImpl<BmsTopicMapper, BmsPost> im
     @Resource
     private BmsTagMapper bmsTagMapper;
 
+    @Resource
+    private UmsUserMapper umsUserMapper;
+
+    @Autowired
+    @Lazy
+    private com.xinchao.fries_community_backend.service.IBmsTagService iBmsTagService;
+
     @Autowired
     private com.xinchao.fries_community_backend.service.IBmsTopicTagService IBmsTopicTagService;
     @Override
@@ -49,5 +65,35 @@ public class IBmsPostServiceImpl extends ServiceImpl<BmsTopicMapper, BmsPost> im
             }
         });
         return iPage;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public BmsPost create(CreateTopicDTO dto, UmsUser user) {
+        BmsPost topic1 = this.baseMapper.selectOne(new LambdaQueryWrapper<BmsPost>().eq(BmsPost::getTitle, dto.getTitle()));
+        Assert.isNull(topic1, "话题已存在，请修改");
+
+        // 封装
+        BmsPost topic = BmsPost.builder()
+                .userId(user.getId())
+                .title(dto.getTitle())
+                .content(EmojiParser.parseToAliases(dto.getContent()))
+                .createTime(new Date())
+                .build();
+        this.baseMapper.insert(topic);
+
+        // 用户积分增加
+        int newScore = user.getScore() + 1;
+        umsUserMapper.updateById(user.setScore(newScore));
+
+        // 标签
+        if (!ObjectUtils.isEmpty(dto.getTags())) {
+            // 保存标签
+            List<BmsTag> tags = iBmsTagService.insertTags(dto.getTags());
+            // 处理标签与话题的关联
+            IBmsTopicTagService.createTopicTag(topic.getId(), tags);
+        }
+
+        return topic;
     }
 }
