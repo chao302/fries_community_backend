@@ -30,4 +30,12 @@ public interface BmsTopicMapper extends BaseMapper<BmsPost> {
      * @return
      */
     Page<PostVO> selectListAndPage(@Param("page") Page<PostVO> page, @Param("tab") String tab);
+    /**
+     * 全文检索
+     *
+     * @param page
+     * @param keyword
+     * @return
+     */
+    Page<PostVO> searchByKey(@Param("page") Page<PostVO> page, @Param("keyword") String keyword);
 }

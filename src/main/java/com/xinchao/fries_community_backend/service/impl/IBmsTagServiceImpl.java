@@ -30,7 +30,7 @@ public class IBmsTagServiceImpl extends ServiceImpl<BmsTagMapper, BmsTag> implem
     private com.xinchao.fries_community_backend.service.IBmsTopicTagService IBmsTopicTagService;
 
     @Autowired
-    private com.xinchao.fries_community_backend.service.IBmsPostService IBmsPostService;
+    private com.xinchao.fries_community_backend.service.IBmsPostService iBmsPostService;
 
 
     @Override
