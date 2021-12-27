@@ -10,18 +10,6 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : 新超
- * @version : 1.0
- * @Project : fries_community_backend
- * @Package : com.xinchao.fries_community_backend.common.mybatisplus
- * @ClassName : MybatisPlusConfig.java
- * @createTime : 2021/12/15 23:38
- * @Email : xinchao302@foxmail.com
- * @Description :
- */
 @Configuration
 @MapperScan("com.xinchao.fries_community_backend.mapper")
 public class MybatisPlusConfig {
@@ -40,7 +28,7 @@ public class MybatisPlusConfig {
 
     @Bean
     public ConfigurationCustomizer configurationCustomizer() {
-        return configuration -> configuration.setUseDeprecatedExecutor(false);
+        return configuration -> configuration.setUseDeprecatedExecutor(false);//为啥也报过时? 明明这是新的
     }
 
 /*

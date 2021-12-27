@@ -21,18 +21,7 @@ import org.springframework.util.ObjectUtils;
 
 import java.util.Date;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : 新超
- * @version : 1.0
- * @Project : fries_community_backend
- * @Package : com.xinchao.fries_community_backend.service.impl
- * @ClassName : IUmsUserServiceImpl.java
- * @createTime : 2021/12/14 15:12
- * @Email : xinchao302@foxmail.com
- * @Description :
- */
+
 @Slf4j
 @Service
 @Transactional(rollbackFor = Exception.class)

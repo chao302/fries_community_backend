@@ -5,18 +5,7 @@ import lombok.Data;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : 新超
- * @version : 1.0
- * @Project : fries_community_backend
- * @Package : com.xinchao.fries_community_backend.model.dto
- * @ClassName : LoginDTO.java
- * @createTime : 2021/12/14 15:44
- * @Email : xinchao302@foxmail.com
- * @Description :
- */
+
 @Data
 public class LoginDTO {
     @NotBlank(message = "用户名不能为空")

@@ -18,18 +18,7 @@ import java.util.Date;
 import java.util.Map;
 
 import static com.xinchao.fries_community_backend.jwt.JwtUtil.USER_NAME;
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : 新超
- * @version : 1.0
- * @Project : fries_community_backend
- * @Package : com.xinchao.fries_community_backend.controller
- * @ClassName : BmsPostController.java
- * @createTime : 2021/12/15 22:29
- * @Email : xinchao302@foxmail.com
- * @Description :
- */
+
 @RestController
 @RequestMapping("/post")
 public class BmsPostController extends BaseController{

@@ -6,18 +6,7 @@ import com.xinchao.fries_community_backend.model.entity.BmsTopicTag;
 
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : 新超
- * @version : 1.0
- * @Project : fries_community_backend
- * @Package : com.xinchao.fries_community_backend.service
- * @ClassName : IBmsTopicTagService.java
- * @createTime : 2021/12/15 22:41
- * @Email : xinchao302@foxmail.com
- * @Description :
- */
+
 public interface IBmsTopicTagService extends IService<BmsTopicTag> {
 
     /**

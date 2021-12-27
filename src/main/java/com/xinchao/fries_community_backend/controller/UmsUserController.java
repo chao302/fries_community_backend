@@ -15,18 +15,6 @@ import java.util.Map;
 
 import static com.xinchao.fries_community_backend.jwt.JwtUtil.USER_NAME;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : 新超
- * @version : 1.0
- * @Project : fries_community_backend
- * @Package : com.xinchao.fries_community_backend.controller
- * @ClassName : UmsUserController.java
- * @createTime : 2021/12/14 15:46
- * @Email : xinchao302@foxmail.com
- * @Description :
- */
 @RestController
 @RequestMapping("/ums/user")
 public class UmsUserController extends BaseController{

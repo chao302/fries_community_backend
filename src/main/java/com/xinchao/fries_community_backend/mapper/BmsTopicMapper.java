@@ -7,18 +7,6 @@ import com.xinchao.fries_community_backend.model.vo.PostVO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : 新超
- * @version : 1.0
- * @Project : fries_community_backend
- * @Package : com.xinchao.fries_community_backend.mapper
- * @ClassName : BmsTopicMapper.java
- * @createTime : 2021/12/15 22:35
- * @Email : xinchao302@foxmail.com
- * @Description :
- */
 @Repository
 public interface BmsTopicMapper extends BaseMapper<BmsPost> {
     /**

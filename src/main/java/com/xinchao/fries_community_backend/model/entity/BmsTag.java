@@ -10,18 +10,7 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : 新超
- * @version : 1.0
- * @Project : fries_community_backend
- * @Package : com.xinchao.fries_community_backend.model.entity
- * @ClassName : BmsTag.java
- * @createTime : 2021/12/15 22:37
- * @Email : xinchao302@foxmail.com
- * @Description :
- */
+
 @Data
 @Builder
 @TableName("bms_tag")

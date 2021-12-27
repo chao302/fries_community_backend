@@ -10,18 +10,7 @@ import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : 新超
- * @version : 1.0
- * @Project : fries_community_backend
- * @Package : com.xinchao.fries_community_backend.model.entity
- * @ClassName : BmsPost.java
- * @createTime : 2021/12/14 15:48
- * @Email : xinchao302@foxmail.com
- * @Description :
- */
+
 @Data
 @Builder
 @TableName("bms_post")

@@ -11,18 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : 新超
- * @version : 1.0
- * @Project : fries_community_backend
- * @Package : com.xinchao.fries_community_backend.controller
- * @ClassName : BmsSearchController.java
- * @createTime : 2021/12/16 15:56
- * @Email : xinchao302@foxmail.com
- * @Description :
- */
 @RestController
 @RequestMapping("/search")
 public class BmsSearchController extends BaseController {

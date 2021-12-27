@@ -11,18 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : 新超
- * @version : 1.0
- * @Project : fries_community_backend
- * @Package : com.xinchao.fries_community_backend.service.impl
- * @ClassName : IBmsTagServiceImpl.java
- * @createTime : 2021/12/16 13:23
- * @Email : xinchao302@foxmail.com
- * @Description :
- */
+
 @Service
 public class IBmsTagServiceImpl extends ServiceImpl<BmsTagMapper, BmsTag> implements IBmsTagService {
 

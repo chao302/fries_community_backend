@@ -8,18 +8,7 @@ import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : 新超
- * @version : 1.0
- * @Project : fries_community_backend
- * @Package : com.xinchao.fries_community_backend.config
- * @ClassName : GlobalWebMvcConfigurer.java
- * @createTime : 2021/12/12 21:30
- * @Email : xinchao302@foxmail.com
- * @Description :
- */
+
 @Configuration
 public class GlobalWebMvcConfigurer implements WebMvcConfigurer {
     /**

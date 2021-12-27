@@ -29,18 +29,7 @@ import javax.annotation.Resource;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : 新超
- * @version : 1.0
- * @Project : fries_community_backend
- * @Package : com.xinchao.fries_community_backend.service.impl
- * @ClassName : IBmsPostServiceImpl.java
- * @createTime : 2021/12/15 22:42
- * @Email : xinchao302@foxmail.com
- * @Description :
- */
+
 @Service
 public class IBmsPostServiceImpl extends ServiceImpl<BmsTopicMapper, BmsPost> implements IBmsPostService {
     @Resource

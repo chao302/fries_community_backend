@@ -11,18 +11,7 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : 新超
- * @version : 1.0
- * @Project : fries_community_backend
- * @Package : com.xinchao.fries_community_backend.model.entity
- * @ClassName : UmsUser.java
- * @createTime : 2021/12/14 14:57
- * @Email : xinchao302@foxmail.com
- * @Description :
- */
+
 @Data
 @Builder
 @TableName("ums_user")

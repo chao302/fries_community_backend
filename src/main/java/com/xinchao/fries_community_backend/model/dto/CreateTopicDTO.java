@@ -5,18 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : 新超
- * @version : 1.0
- * @Project : fries_community_backend
- * @Package : com.xinchao.fries_community_backend.model.dto
- * @ClassName : CreateTopicDTO.java
- * @createTime : 2021/12/16 13:16
- * @Email : xinchao302@foxmail.com
- * @Description :
- */
+
 @Data
 public class CreateTopicDTO implements Serializable {
     private static final long serialVersionUID = -5957433707110390852L;

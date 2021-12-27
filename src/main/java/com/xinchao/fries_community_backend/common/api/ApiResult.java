@@ -6,18 +6,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.Optional;
 
-/**
- * Created with IntelliJ IDEA.
- *
- * @author : 新超
- * @version : 1.0
- * @Project : fries_community_backend
- * @Package : com.xinchao.fries_community_backend.common.api
- * @ClassName : ApiResult.java
- * @createTime : 2021/12/12 18:01
- * @Email : xinchao302@foxmail.com
- * @Description :
- */
+
 @Data
 @NoArgsConstructor
 public class ApiResult<T> implements Serializable {
